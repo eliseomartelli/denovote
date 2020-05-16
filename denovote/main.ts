@@ -18,12 +18,3 @@ const init = async () => {
 };
 
 init();
-
-import db from "./database.ts";
-import { Votable } from "./votable.ts";
-
-const database = db.getDatabase();
-const votables = database.collection("votables");
-
-votables.insertOne(new Votable("Hello friend", []));
-votables.insertOne(new Votable("Hello friend", []));

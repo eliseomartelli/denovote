@@ -26,7 +26,7 @@ class Answer {
   }
 
   public incrementScore() {
-    this._score++;
+    this._score = this._score + 1;
   }
 }
 
