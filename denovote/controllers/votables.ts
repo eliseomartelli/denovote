@@ -64,9 +64,12 @@ export const setVote = async (req: Request, res: Response) => {
         _id: { $oid: req.params.id },
       });
       if (fetchedVotable) {
-        var answer = fetchedVotable.answers.find((answer: Answer) => {
-          return answer.id == req.params.aid;
-        });
+        fetchedVotable.answers
+          .find((answer: Answer) => {
+            return answer.id == req.params.aid;
+          })
+          ?.incrementScore();
+        votables.updateOne({ _id: { $oid: req.params.id } }, fetchedVotable);
       }
     }
   } catch (error) {
