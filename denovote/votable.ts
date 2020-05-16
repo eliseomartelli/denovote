@@ -1,13 +1,11 @@
 import { Answer } from "./answer.ts";
 
 class Votable {
-  private _id: number;
+  _id!: {
+    $oid: string;
+  };
   private _text: string;
   private _answers: Answer[];
-
-  public get id(): number {
-    return this._id;
-  }
 
   public get text(): string {
     return this._text;
@@ -17,8 +15,7 @@ class Votable {
     return this._answers;
   }
 
-  constructor(id: number, text: string, answers: Answer[]) {
-    this._id = id;
+  constructor(text: string, answers: Answer[]) {
     this._text = text;
     this._answers = answers;
   }
@@ -26,7 +23,7 @@ class Votable {
   public toJSON() {
     return {
       text: this._text,
-      id: this._id,
+      _id: this._id,
       answers: this._answers,
     };
   }

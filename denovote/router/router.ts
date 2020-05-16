@@ -5,13 +5,13 @@ import { Request, Response } from "https://deno.land/x/attain/mod.ts";
 const router = new Router();
 
 router.get("/", async (req, res) => {
-    await res.status(200).send({
-        status: "OK"
-    });
+  await res.status(200).send({
+    status: "OK",
+  });
 });
 
 router.get("/votables", async (req, res) => {
-    await getVotables(req, res);
+  await getVotables(req, res);
 });
 
-export {router};
+export { router };
