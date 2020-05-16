@@ -60,16 +60,16 @@ export const getVotable = async (req: Request, res: Response) => {
 export const setVote = async (req: Request, res: Response) => {
   try {
     if (req.params.id && req.params.aid) {
-      var fetchedVotable: Votable = await votables.findOne({
+      let fetchedVotable: Votable = await votables.findOne({
         _id: { $oid: req.params.id },
       });
       if (fetchedVotable) {
-        fetchedVotable.answers
-          .find((answer: Answer) => {
-            return answer.id == req.params.aid;
-          })
-          ?.incrementScore();
+        let answer = fetchedVotable.answers.find((a) => a.id == req.params.aid);
+        if (answer) {
+          answer.score = answer.score + 1;
+        }
         votables.updateOne({ _id: { $oid: req.params.id } }, fetchedVotable);
+        await getVotable(req, res);
       }
     }
   } catch (error) {

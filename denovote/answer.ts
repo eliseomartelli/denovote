@@ -25,8 +25,12 @@ class Answer {
     };
   }
 
-  public incrementScore() {
-    this._score = this._score + 1;
+  public get score(): number {
+    return this._score;
+  }
+
+  public set score(v: number) {
+    this._score = v;
   }
 }
 

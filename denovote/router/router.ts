@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/votables", async (req, res) => {
+router.get("/votable", async (req, res) => {
   await getVotables(req, res);
 });
 
