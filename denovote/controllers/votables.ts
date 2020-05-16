@@ -1,6 +1,5 @@
 import { Request, Response } from "https://deno.land/x/attain/mod.ts";
-import { Votable } from "../votable.ts";
-import { Answer } from "../answer.ts";
+import { Votable } from "../models/votable.ts";
 
 import db from "../database.ts";
 
