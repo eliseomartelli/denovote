@@ -6,7 +6,7 @@ import { router } from "./router/router.ts";
 const init = async () => {
   const app = new App();
   app.use(parser);
-  app.use("/api", router);
+  app.use(router);
   app.use(async (req, res) => {
     res.status(404).send({
       status: "Not found.",
