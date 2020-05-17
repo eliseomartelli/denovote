@@ -1,5 +1,5 @@
 import { App } from "https://deno.land/x/attain/mod.ts";
-import parser from "https://deno.land/x/attain/plugins/json-parser.ts";
+import { parser } from "https://deno.land/x/attain/plugins/parser.ts";
 
 import { router } from "./router/router.ts";
 

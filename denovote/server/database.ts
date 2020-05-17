@@ -3,7 +3,9 @@ import { init, MongoClient } from "https://deno.land/x/mongo@v0.6.0/mod.ts";
 await init();
 
 const dbName = Deno.env.get("DB_NAME") || "denovote";
-const dbUrl = Deno.env.get("DB_HOST_URL") || "mongodb://localhost:27017";
+const dbUrl = Deno.env.get("DB_HOST_URL") || "localhost:27017";
+
+console.log(dbUrl);
 
 class DB {
   public client: MongoClient;
@@ -15,7 +17,14 @@ class DB {
   }
   connect() {
     const client = new MongoClient();
-    client.connectWithUri(this.url);
+    // client.connectWithOptions({
+    //   hosts: [this.url],
+    //   username: Deno.env.get("DB_USER") || "root",
+    //   password: Deno.env.get("DB_PASS") || "root",
+    //   directConnection: true,
+    //   appName: "DenoVote"
+    // });
+    client.connectWithUri("mongodb://" + this.url);
     this.client = client;
   }
   public getDatabase() {
