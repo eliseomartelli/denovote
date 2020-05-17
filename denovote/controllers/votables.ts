@@ -8,7 +8,9 @@ const votables = database.collection("votables");
 
 export const getVotables = async (req: Request, res: Response) => {
   try {
-    const fetchedVotables: Votable[] = await votables.find();
+    const fetchedVotables: Votable[] = await votables.aggregate([
+      { $sort: { _id: -1 } },
+    ]);
     res.status(200).send(fetchedVotables);
   } catch (error) {
     res.status(500).send({
