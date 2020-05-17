@@ -13,9 +13,7 @@ export const getVotables = async (req: Request, res: Response) => {
     ]);
     res.status(200).send(fetchedVotables);
   } catch (error) {
-    res.status(500).send({
-      status: "Server Error",
-    });
+    send500(res, error);
   }
 };
 
@@ -31,10 +29,7 @@ export const postVotable = async (req: Request, res: Response) => {
       throw new Error();
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).send({
-      status: "Server Error",
-    });
+    send500(res, error);
   }
 };
 
@@ -51,10 +46,7 @@ export const getVotable = async (req: Request, res: Response) => {
       throw new Error();
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).send({
-      status: "Server Error",
-    });
+    send500(res, error);
   }
 };
 
@@ -74,9 +66,13 @@ export const setVote = async (req: Request, res: Response) => {
       }
     }
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      status: "Server Error",
-    });
+    send500(res, error);
   }
+};
+
+const send500 = (res: Response, error: Error) => {
+  console.log(error);
+  res.status(500).send({
+    status: "Server Error",
+  });
 };
