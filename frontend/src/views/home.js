@@ -13,7 +13,7 @@ let getVotables = async () => {
   } catch (err) {
     console.log("Error", err);
   }
-  return undefined;
+  return;
 };
 
 let Home = {
@@ -35,6 +35,10 @@ let Home = {
         })
         .join("\n")}
       <a href="/#/add" class="fab">+</a>
+      `;
+    } else {
+      return /*html*/ `
+        <h3>Try later, pls :(</h3>
       `;
     }
   },
