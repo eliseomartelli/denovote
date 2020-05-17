@@ -1,20 +1,38 @@
 import { Utils } from "../utils.js";
 import { NotFound } from "../views/notfound.js";
+import { api } from "../config.js";
 
-let votables = [
-  { id: 0, title: "Hello, world!" },
-  { id: 1, title: "Classic." },
-];
+let getVotable = async (id) => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const response = await fetch(api + "/votable/" + id, options);
+    return await response.json();
+  } catch (err) {
+    console.log("Error", err);
+  }
+  return undefined;
+};
 
 let Votable = {
   render: async () => {
     let request = Utils.parseRequestURL();
-    let votable = votables.find((e) => {
-      return e.id == request.id;
-    });
+    let votable = await getVotable(request.id);
+
     if (votable) {
       return /*html*/ `
-                ${votable?.title}
+                ${votable?.text}
+                ${votable.answers
+                  .map((a) => {
+                    return /*html*/ `
+                    ${a.text}
+                  `;
+                  })
+                  .join("\n")}
             `;
     }
     return await NotFound.render();

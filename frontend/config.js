@@ -1,1 +1,1 @@
-export const api = "https://deno_api.eliseomartelli.it/";
+export const api = "http://127.0.0.1:8080";
