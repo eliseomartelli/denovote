@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+header {
+  background: #fff;
+  width: 100%;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+}
+header .content {
+  align-content: center;
+  text-align: center;
+}
+
+header .content .logo {
+  padding: 16px 0;
+  font-size: 1.6em;
+  color: #333;
+}
+
+.logo {
+  font-weight: bold;
+  display: block;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.content#main {
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+
+.fab {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #c60055;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 52px;
+  position: fixed;
+  bottom: 16px;
+  right: calc(50% - 28px);
+}
+
+.button {
+  background: #12005e;
+}
+
+.card {
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.125);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.card h3 {
+  margin: 0;
+}
