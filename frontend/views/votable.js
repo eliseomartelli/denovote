@@ -1,5 +1,6 @@
 import { Utils } from "../utils.js";
-import { NotFound } from "/views/notfound.js";
+import { NotFound } from "../views/notfound.js";
+
 let votables = [
   { id: 0, title: "Hello, world!" },
   { id: 1, title: "Classic." },
